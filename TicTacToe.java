@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 enum Move {
     X,
     O,
@@ -5,6 +7,7 @@ enum Move {
 }
 
 public class TicTacToe {
+    static Scanner in = new Scanner(System.in);
     Move[][] board = { { Move.I, Move.I, Move.I }, { Move.I, Move.I, Move.I }, { Move.I, Move.I, Move.I } };
 
     public void gameLoop() {
@@ -40,6 +43,15 @@ public class TicTacToe {
     }
 
     private int getInput() {
-        return 0;
+        int input;
+        System.out.print("Enter a number between 1 and 9: ");
+        try {
+            input = Integer.parseInt(in.nextLine());
+        }
+        catch (NumberFormatException e) {
+            System.out.println("Invalid input, please try again.");
+            return getInput();
+        }
+        return input;
     }
 }
