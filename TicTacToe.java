@@ -43,13 +43,13 @@ public class TicTacToe {
     }
 
     private int getInput() {
-        int input;
+        byte input = 0;
         System.out.print("Enter a number between 1 and 9: ");
         try {
-            input = Integer.parseInt(in.nextLine());
+            input = Byte.parseByte(in.nextLine());
         }
         catch (NumberFormatException e) {
-            System.out.println("Invalid input, please try again.");
+            System.out.println("Invalid input. Try again.");
             return getInput();
         }
         return input;
